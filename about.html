@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About · Chilli Pepper Robotics</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0c0a09;--bg2:#141210;--bg3:#1c1917;--border:#2a2725;--border2:#3a3735;--text:#f5f0eb;--muted:#8a8480;--muted2:#5a5450;--accent:#e8400c;--accent2:#f97316;--gold:#d4a843;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(12,10,9,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 3rem;height:60px;}
+.nav-logo{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:300;color:var(--text);text-decoration:none;letter-spacing:0.02em;display:flex;align-items:center;gap:8px;}
+.nav-logo span{color:var(--accent);}
+.nav-links{display:flex;align-items:center;gap:2rem;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.8rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--text);}
+.nav-cta{background:var(--accent);color:#fff;font-size:0.78rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;padding:8px 18px;border-radius:4px;text-decoration:none;transition:background .2s;}
+.nav-cta:hover{background:var(--accent2);color:#fff;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--muted);}
+.page-hero{padding:10rem 3rem 5rem;border-bottom:1px solid var(--border);}
+.page-eyebrow{font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:1.2rem;}
+.page-hero h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(2.8rem,6vw,5.5rem);line-height:1.05;letter-spacing:-0.02em;color:var(--text);}
+.page-hero h1 em{font-style:italic;color:var(--muted);}
+.page-hero-sub{font-size:1rem;color:var(--muted);max-width:560px;line-height:1.8;margin-top:1.5rem;}
+.section{padding:6rem 3rem;border-bottom:1px solid var(--border);}
+.inner{max-width:1100px;margin:0 auto;}
+.about-block{display:grid;grid-template-columns:280px 1fr;gap:4rem;padding:3rem 0;border-top:1px solid var(--border);align-items:start;}
+.about-block:last-child{border-bottom:1px solid var(--border);}
+.ab-label{font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted2);padding-top:4px;}
+.ab-content h3{font-family:'Fraunces',serif;font-weight:300;font-size:1.6rem;letter-spacing:-0.01em;color:var(--text);margin-bottom:1rem;}
+.ab-content p{font-size:0.95rem;color:var(--muted);line-height:1.85;margin-bottom:0.9rem;}
+.ab-content p:last-child{margin-bottom:0;}
+.ab-content p strong{color:var(--text);font-weight:500;}
+.ab-tag{display:inline-block;font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);background:rgba(232,64,12,0.1);border:1px solid rgba(232,64,12,0.2);padding:4px 12px;border-radius:3px;margin-top:1rem;}
+footer{padding:4rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem;}
+.flogo{font-family:'Fraunces',serif;font-size:1rem;font-weight:300;color:var(--muted);letter-spacing:0.02em;}
+.flogo span{color:var(--accent);}
+.flinks{display:flex;gap:2rem;flex-wrap:wrap;}
+.flinks a{font-size:0.78rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted2);text-decoration:none;transition:color .2s;}
+.flinks a:hover{color:var(--text);}
+.fcopy{font-size:0.75rem;color:var(--muted2);width:100%;}
+@media(max-width:900px){nav{padding:0 1.5rem;}.page-hero,.section{padding-left:1.5rem;padding-right:1.5rem;}.about-block{grid-template-columns:1fr;gap:1rem;}footer{padding:3rem 1.5rem;}}
+@media(max-width:600px){.nav-links{display:none;position:absolute;top:60px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);flex-direction:column;gap:0;padding:.5rem 0;}.nav-links.open{display:flex;}.nav-links a{padding:12px 1.5rem;border-bottom:1px solid var(--border);}.nav-cta{display:none;}.hamburger{display:flex;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo"><span>🌶</span> Chilli Pepper Robotics</a>
+  <div class="nav-links" id="navlinks">
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="teams.html">Teams</a>
+    <a href="results.html">Results</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <a href="contact.html" class="nav-cta">Get in Touch</a>
+  <div class="hamburger" onclick="document.getElementById('navlinks').classList.toggle('open')"><span></span><span></span><span></span></div>
+</nav>
+<div class="page-hero">
+  <p class="page-eyebrow">About Us</p>
+  <h1>Who we are<br><em>and why we compete.</em></h1>
+  <p class="page-hero-sub">Chilli Pepper Robotics is an elite, award-winning VEX organization dedicated to excellence in engineering, innovation, and competitive robotics.</p>
+</div>
+<section class="section">
+  <div class="inner">
+    <div class="about-block">
+      <div class="ab-label">Establishment</div>
+      <div class="ab-content">
+        <h3>How it started</h3>
+        <p>Chilli Pepper Robotics was founded by passionate students with a drive to compete at the highest levels of VEX Robotics. What started as a small group of builders and programmers has grown into a multi-city, award-winning organization spanning two countries.</p>
+        <p>From our very first tournament to provincial and national competitions, we've built a culture that prizes both competitive results and personal growth.</p>
+        <span class="ab-tag">Est. [Your Year]</span>
+      </div>
+    </div>
+    <div class="about-block">
+      <div class="ab-label">Location</div>
+      <div class="ab-content">
+        <h3>Four cities, two countries</h3>
+        <p>We operate across <strong>Ottawa and Markham, Ontario</strong>, <strong>Cary, North Carolina</strong>, and <strong>Tulsa, Oklahoma</strong>. Our teams train and compete locally while representing the Chilli Pepper name across North America.</p>
+        <p>This geographic spread is one of our strengths — different regional competitions, different opponents, and different styles all feed back into the organization.</p>
+        <span class="ab-tag">Ottawa · Markham · Cary · Tulsa</span>
+      </div>
+    </div>
+    <div class="about-block">
+      <div class="ab-label">Teams</div>
+      <div class="ab-content">
+        <h3>Five teams, one banner</h3>
+        <p>We field five competitive teams: <strong>37X – Xtra Hot Chilli Peppers</strong> (Ottawa), <strong>37S – Supa Hot Chilli Peppers</strong> (Ottawa), <strong>2020Z – Double Take</strong> (Markham), <strong>61568A – Genesis</strong> (Cary), and <strong>3760V – The Unnamed</strong> (Tulsa).</p>
+        <p>Each team competes independently with its own identity, robot design, and strategy — while sharing knowledge, resources, and a collective drive to win.</p>
+        <span class="ab-tag">83 Combined Awards</span>
+      </div>
+    </div>
+    <div class="about-block">
+      <div class="ab-label">Diversity</div>
+      <div class="ab-content">
+        <h3>Not a school club — a community</h3>
+        <p>Chilli Pepper Robotics isn't a single-school organization. Our members come from different schools, backgrounds, and cities across two countries. This diversity in perspective is one of our greatest competitive advantages — it fuels creative solutions and a richer team culture.</p>
+        <span class="ab-tag">Multi-School · Multi-City</span>
+      </div>
+    </div>
+    <div class="about-block">
+      <div class="ab-label">Mentorship</div>
+      <div class="ab-content">
+        <h3>Everyone teaches. Everyone learns.</h3>
+        <p>We pride ourselves on the mentorship, guidance, and advisory we provide one another — ranging from build and programming tips to engineering notebook help and match strategy.</p>
+        <p>Experienced members actively coach newer ones, creating a culture where the entire organization levels up together, not just individual teams.</p>
+        <span class="ab-tag">Student-Led Mentorship</span>
+      </div>
+    </div>
+    <div class="about-block">
+      <div class="ab-label">Size</div>
+      <div class="ab-content">
+        <h3>Growing every season</h3>
+        <p>With five teams, four cities, and <strong>83 past awards</strong> earned by members across the organization, Chilli Pepper Robotics is one of the most accomplished multi-regional VEX organizations operating today.</p>
+        <p>We're not done yet. Every season brings new teams, new members, and new hardware.</p>
+        <span class="ab-tag">5 Teams · 83 Awards · 4 Cities</span>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="flogo"><span>🌶</span> Chilli Pepper Robotics · VEX V5 Organization</div>
+  <div class="flinks">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="teams.html">Teams</a>
+    <a href="results.html">Results</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <p class="fcopy">© 2025 Chilli Pepper Robotics · Ottawa & Markham, ON · Cary, NC · Tulsa, OK</p>
+</footer>
+</body>
+</html>

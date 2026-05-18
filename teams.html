@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teams · Chilli Pepper Robotics</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0c0a09;--bg2:#141210;--bg3:#1c1917;--border:#2a2725;--border2:#3a3735;--text:#f5f0eb;--muted:#8a8480;--muted2:#5a5450;--accent:#e8400c;--accent2:#f97316;--gold:#d4a843;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(12,10,9,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 3rem;height:60px;}
+.nav-logo{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:300;color:var(--text);text-decoration:none;letter-spacing:0.02em;display:flex;align-items:center;gap:8px;}
+.nav-logo span{color:var(--accent);}
+.nav-links{display:flex;align-items:center;gap:2rem;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.8rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--text);}
+.nav-cta{background:var(--accent);color:#fff;font-size:0.78rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;padding:8px 18px;border-radius:4px;text-decoration:none;transition:background .2s;}
+.nav-cta:hover{background:var(--accent2);color:#fff;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--muted);}
+.page-hero{padding:10rem 3rem 5rem;border-bottom:1px solid var(--border);}
+.page-eyebrow{font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:1.2rem;}
+.page-hero h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(2.8rem,6vw,5.5rem);line-height:1.05;letter-spacing:-0.02em;color:var(--text);}
+.page-hero h1 em{font-style:italic;color:var(--muted);}
+.page-hero-sub{font-size:1rem;color:var(--muted);max-width:560px;line-height:1.8;margin-top:1.5rem;}
+.section{padding:6rem 3rem;border-bottom:1px solid var(--border);}
+.inner{max-width:1100px;margin:0 auto;}
+.totals{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin-bottom:5rem;}
+.total-cell{background:var(--bg);padding:2rem;}
+.tc-num{font-family:'Fraunces',serif;font-size:3rem;font-weight:300;letter-spacing:-0.03em;line-height:1;color:var(--text);}
+.tc-label{font-size:0.7rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted2);margin-top:.4rem;}
+.teams-list{display:flex;flex-direction:column;gap:0;}
+.tcard{padding:3rem 0;border-top:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr 160px;gap:3rem;align-items:start;transition:all .2s;}
+.tcard:last-child{border-bottom:1px solid var(--border);}
+.tcard:hover{background:var(--bg2);margin:0 -3rem;padding:3rem;}
+.tc-badge{font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted2);margin-bottom:.75rem;}
+.tc-num{font-family:'Fraunces',serif;font-size:3rem;font-weight:300;letter-spacing:-0.02em;line-height:1;color:var(--text);margin-bottom:.3rem;}
+.tc-nick{font-size:0.95rem;font-weight:500;color:var(--muted);letter-spacing:0.01em;}
+.tc-loc{font-size:0.75rem;color:var(--muted2);margin-top:.5rem;letter-spacing:0.04em;}
+.tc-right p{font-size:0.92rem;color:var(--muted);line-height:1.8;}
+.tc-award{text-align:right;}
+.tc-award-num{font-family:'Fraunces',serif;font-size:3.5rem;font-weight:300;color:var(--gold);line-height:1;letter-spacing:-0.03em;}
+.tc-award-lbl{font-size:0.68rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted2);margin-top:3px;}
+footer{padding:4rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem;}
+.flogo{font-family:'Fraunces',serif;font-size:1rem;font-weight:300;color:var(--muted);letter-spacing:0.02em;}
+.flogo span{color:var(--accent);}
+.flinks{display:flex;gap:2rem;flex-wrap:wrap;}
+.flinks a{font-size:0.78rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted2);text-decoration:none;transition:color .2s;}
+.flinks a:hover{color:var(--text);}
+.fcopy{font-size:0.75rem;color:var(--muted2);width:100%;}
+@media(max-width:900px){nav{padding:0 1.5rem;}.page-hero,.section{padding-left:1.5rem;padding-right:1.5rem;}.tcard{grid-template-columns:1fr auto;gap:1.5rem;}.tc-right{display:none;}.tcard:hover{margin:0 -1.5rem;padding:3rem 1.5rem;}.totals{grid-template-columns:1fr 1fr;}footer{padding:3rem 1.5rem;}}
+@media(max-width:600px){.nav-links{display:none;position:absolute;top:60px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);flex-direction:column;gap:0;padding:.5rem 0;}.nav-links.open{display:flex;}.nav-links a{padding:12px 1.5rem;border-bottom:1px solid var(--border);}.nav-cta{display:none;}.hamburger{display:flex;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo"><span>🌶</span> Chilli Pepper Robotics</a>
+  <div class="nav-links" id="navlinks">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="teams.html" class="active">Teams</a>
+    <a href="results.html">Results</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <a href="contact.html" class="nav-cta">Get in Touch</a>
+  <div class="hamburger" onclick="document.getElementById('navlinks').classList.toggle('open')"><span></span><span></span><span></span></div>
+</nav>
+<div class="page-hero">
+  <p class="page-eyebrow">Our Teams</p>
+  <h1>Five teams.<br><em>83 combined awards.</em></h1>
+  <p class="page-hero-sub">Each team competes independently with its own identity and strategy — all united under the Chilli Pepper banner.</p>
+</div>
+<section class="section">
+  <div class="inner">
+    <div class="totals">
+      <div class="total-cell"><div class="tc-num" style="color:var(--gold);">83</div><div class="tc-label">Total Awards</div></div>
+      <div class="total-cell"><div class="tc-num">5</div><div class="tc-label">Active Teams</div></div>
+      <div class="total-cell"><div class="tc-num">4</div><div class="tc-label">Cities</div></div>
+      <div class="total-cell"><div class="tc-num">2</div><div class="tc-label">Countries</div></div>
+    </div>
+    <div class="teams-list">
+      <div class="tcard">
+        <div>
+          <div class="tc-badge">Flagship · Most Decorated</div>
+          <div class="tc-num">37X</div>
+          <div class="tc-nick">Xtra Hot Chilli Peppers</div>
+          <div class="tc-loc">📍 Ottawa, Ontario</div>
+        </div>
+        <div class="tc-right"><p>The most decorated team in the organization with 43 awards. Known for aggressive play, elite autonomous routines, and consistently deep championship runs. This is the standard every Chilli Pepper team strives to reach.</p></div>
+        <div class="tc-award"><div class="tc-award-num">43</div><div class="tc-award-lbl">Awards</div></div>
+      </div>
+      <div class="tcard">
+        <div>
+          <div class="tc-badge">Competition Team</div>
+          <div class="tc-num">3760V</div>
+          <div class="tc-nick">The Unnamed</div>
+          <div class="tc-loc">📍 Tulsa, Oklahoma</div>
+        </div>
+        <div class="tc-right"><p>Mysterious by name, formidable by performance. 3760V is one of the most experienced teams in the org. 24 awards earned across their history — the results speak louder than any name ever could.</p></div>
+        <div class="tc-award"><div class="tc-award-num">24</div><div class="tc-award-lbl">Awards</div></div>
+      </div>
+      <div class="tcard">
+        <div>
+          <div class="tc-badge">Competition Team</div>
+          <div class="tc-num">61568A</div>
+          <div class="tc-nick">Genesis</div>
+          <div class="tc-loc">📍 Cary, North Carolina</div>
+        </div>
+        <div class="tc-right"><p>Built from the ground up with precision engineering at its core. Genesis has earned 8 awards and is a rising force — combining smart strategy with polished, innovative robot design that consistently impresses judges and opponents alike.</p></div>
+        <div class="tc-award"><div class="tc-award-num">8</div><div class="tc-award-lbl">Awards</div></div>
+      </div>
+      <div class="tcard">
+        <div>
+          <div class="tc-badge">Competition Team</div>
+          <div class="tc-num">37S</div>
+          <div class="tc-nick">Supa Hot Chilli Peppers</div>
+          <div class="tc-loc">📍 Ottawa, Ontario</div>
+        </div>
+        <div class="tc-right"><p>High-energy drivers with a fearless competitive spirit. 37S brings fast build cycles, tight alliance coordination, and relentless drive to every tournament they enter. Four awards and momentum building every season.</p></div>
+        <div class="tc-award"><div class="tc-award-num">4</div><div class="tc-award-lbl">Awards</div></div>
+      </div>
+      <div class="tcard">
+        <div>
+          <div class="tc-badge">Competition Team</div>
+          <div class="tc-num">2020Z</div>
+          <div class="tc-nick">Double Take</div>
+          <div class="tc-loc">📍 Markham, Ontario</div>
+        </div>
+        <div class="tc-right"><p>A team that surprises opponents and impresses judges. Double Take excels at creative engineering solutions that make everyone look twice. Four awards and a reputation for designs nobody else sees coming.</p></div>
+        <div class="tc-award"><div class="tc-award-num">4</div><div class="tc-award-lbl">Awards</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="flogo"><span>🌶</span> Chilli Pepper Robotics · VEX V5 Organization</div>
+  <div class="flinks">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="teams.html">Teams</a>
+    <a href="results.html">Results</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <p class="fcopy">© 2025 Chilli Pepper Robotics · Ottawa & Markham, ON · Cary, NC · Tulsa, OK</p>
+</footer>
+</body>
+</html>

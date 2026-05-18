@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Chilli Pepper Robotics — Elite VEX V5 Robotics organization with 5 teams across Canada and the USA. 83 past awards.">
+<meta name="theme-color" content="#0c0a09">
+<title>Chilli Pepper Robotics · VEX V5 Organization</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0c0a09;--bg2:#141210;--bg3:#1c1917;--border:#2a2725;--border2:#3a3735;--text:#f5f0eb;--muted:#8a8480;--muted2:#5a5450;--accent:#e8400c;--accent2:#f97316;--gold:#d4a843;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(12,10,9,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 3rem;height:60px;}
+.nav-logo{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:300;color:var(--text);text-decoration:none;letter-spacing:0.02em;display:flex;align-items:center;gap:8px;}
+.nav-logo span{color:var(--accent);}
+.nav-links{display:flex;align-items:center;gap:2rem;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.8rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--text);}
+.nav-cta{background:var(--accent);color:#fff;font-size:0.78rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;padding:8px 18px;border-radius:4px;text-decoration:none;transition:background .2s;}
+.nav-cta:hover{background:var(--accent2);color:#fff;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--muted);}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 3rem 5rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border);}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%, rgba(232,64,12,0.08) 0%, transparent 60%),radial-gradient(ellipse at 20% 80%, rgba(212,168,67,0.05) 0%, transparent 50%);}
+.hero-eyebrow{font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;}
+.hero h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(3.5rem,8vw,7.5rem);line-height:1.0;color:var(--text);letter-spacing:-0.02em;max-width:900px;}
+.hero h1 em{font-style:italic;color:var(--muted);}
+.hero-sub{font-size:1rem;color:var(--muted);max-width:520px;line-height:1.75;margin-top:1.8rem;}
+.hero-actions{margin-top:2.5rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap;}
+.btn-primary{background:var(--accent);color:#fff;font-size:0.82rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;padding:13px 28px;border-radius:4px;text-decoration:none;transition:background .2s,transform .15s;display:inline-block;}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-1px);}
+.btn-ghost{color:var(--muted);font-size:0.82rem;font-weight:500;text-decoration:none;letter-spacing:0.04em;display:inline-flex;align-items:center;gap:6px;transition:color .2s;}
+.btn-ghost:hover{color:var(--text);}
+.btn-ghost::after{content:'→';transition:transform .2s;}
+.btn-ghost:hover::after{transform:translateX(4px);}
+.hero-stats{position:absolute;right:3rem;bottom:5rem;display:flex;flex-direction:column;gap:2rem;text-align:right;}
+.hstat-num{font-family:'Fraunces',serif;font-size:3rem;font-weight:300;color:var(--text);line-height:1;letter-spacing:-0.02em;}
+.hstat-label{font-size:0.7rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted2);margin-top:2px;}
+.section{padding:7rem 3rem;border-bottom:1px solid var(--border);}
+.inner{max-width:1100px;margin:0 auto;}
+.section-num{font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted2);margin-bottom:3rem;display:flex;align-items:center;gap:1rem;}
+.section-num::after{content:'';flex:1;max-width:60px;height:1px;background:var(--border2);}
+h2{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(2.2rem,4.5vw,3.8rem);line-height:1.1;letter-spacing:-0.02em;color:var(--text);margin-bottom:1.5rem;}
+h2 em{font-style:italic;color:var(--muted);}
+.section-intro{font-size:1rem;color:var(--muted);line-height:1.8;max-width:600px;}
+.about-cols{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;margin-top:4rem;}
+.about-text p{font-size:0.95rem;color:var(--muted);line-height:1.85;margin-bottom:1.2rem;}
+.about-text p strong{color:var(--text);font-weight:500;}
+.pillars{margin-top:2.5rem;display:flex;flex-direction:column;gap:0;}
+.pillar{padding:1.2rem 0;border-top:1px solid var(--border);display:flex;gap:1.5rem;align-items:flex-start;}
+.pillar:last-child{border-bottom:1px solid var(--border);}
+.pillar-icon{font-size:1rem;margin-top:2px;opacity:.7;}
+.pillar-title{font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:3px;}
+.pillar-desc{font-size:0.82rem;color:var(--muted);line-height:1.6;}
+.stat-block{padding:2.5rem;background:var(--bg2);border:1px solid var(--border);border-radius:6px;margin-bottom:1px;}
+.stat-block:first-child{border-radius:6px 6px 0 0;}
+.stat-block:last-child{border-radius:0 0 6px 6px;}
+.sb-num{font-family:'Fraunces',serif;font-size:4rem;font-weight:300;letter-spacing:-0.03em;line-height:1;color:var(--text);}
+.sb-label{font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted2);margin-top:.4rem;}
+.teams-list{margin-top:4rem;display:flex;flex-direction:column;gap:0;}
+.trow{display:grid;grid-template-columns:200px 1fr auto;gap:2rem;align-items:center;padding:2rem 0;border-top:1px solid var(--border);transition:all .2s;}
+.trow:last-child{border-bottom:1px solid var(--border);}
+.trow:hover{background:var(--bg2);margin:0 -3rem;padding:2rem 3rem;}
+.tnum{font-family:'Fraunces',serif;font-size:2rem;font-weight:300;letter-spacing:-0.02em;color:var(--text);}
+.tnick{font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted2);margin-top:3px;}
+.tloc{font-size:0.72rem;color:var(--muted2);margin-top:4px;}
+.tdesc{font-size:0.9rem;color:var(--muted);line-height:1.7;}
+.tawards{text-align:right;}
+.tawards-num{font-family:'Fraunces',serif;font-size:2.2rem;font-weight:300;color:var(--gold);line-height:1;}
+.tawards-lbl{font-size:0.68rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted2);margin-top:2px;}
+.locs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:4rem;background:var(--border);}
+.lcell{background:var(--bg);padding:2.5rem 2rem;}
+.lcell-flag{font-size:1.5rem;margin-bottom:1rem;}
+.lcell-city{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:300;color:var(--text);margin-bottom:4px;}
+.lcell-region{font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted2);}
+footer{padding:4rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem;}
+.flogo{font-family:'Fraunces',serif;font-size:1rem;font-weight:300;color:var(--muted);letter-spacing:0.02em;}
+.flogo span{color:var(--accent);}
+.flinks{display:flex;gap:2rem;flex-wrap:wrap;}
+.flinks a{font-size:0.78rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted2);text-decoration:none;transition:color .2s;}
+.flinks a:hover{color:var(--text);}
+.fcopy{font-size:0.75rem;color:var(--muted2);width:100%;}
+@media(max-width:900px){nav{padding:0 1.5rem;}.hero{padding:0 1.5rem 4rem;}.hero-stats{display:none;}.section{padding:5rem 1.5rem;}.trow{grid-template-columns:1fr auto;gap:1rem;}.trow .tdesc{display:none;}.trow:hover{margin:0 -1.5rem;padding:2rem 1.5rem;}.locs-grid{grid-template-columns:1fr 1fr;}footer{padding:3rem 1.5rem;}.about-cols{grid-template-columns:1fr;gap:3rem;}}
+@media(max-width:600px){.nav-links{display:none;position:absolute;top:60px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);flex-direction:column;gap:0;padding:.5rem 0;}.nav-links.open{display:flex;}.nav-links a{padding:12px 1.5rem;border-bottom:1px solid var(--border);}.nav-cta{display:none;}.hamburger{display:flex;}.locs-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo"><span>🌶</span> Chilli Pepper Robotics</a>
+  <div class="nav-links" id="navlinks">
+    <a href="index.html" class="active">Home</a>
+    <a href="about.html">About</a>
+    <a href="teams.html">Teams</a>
+    <a href="results.html">Results</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <a href="contact.html" class="nav-cta">Get in Touch</a>
+  <div class="hamburger" onclick="document.getElementById('navlinks').classList.toggle('open')"><span></span><span></span><span></span></div>
+</nav>
+<section class="hero">
+  <div class="hero-bg"></div>
+  <p class="hero-eyebrow">VEX V5 Robotics · Ontario · North Carolina · Oklahoma</p>
+  <h1>Elite robotics.<br><em>Built by students.</em></h1>
+  <p class="hero-sub">Chilli Pepper Robotics is a student-led VEX V5 organization fielding five competitive teams across Canada and the United States — with 83 combined awards and a drive to keep adding more.</p>
+  <div class="hero-actions">
+    <a href="teams.html" class="btn-primary">Meet Our Teams</a>
+    <a href="about.html" class="btn-ghost">Our Story</a>
+  </div>
+  <div class="hero-stats">
+    <div><div class="hstat-num">83</div><div class="hstat-label">Past Awards</div></div>
+    <div><div class="hstat-num">5</div><div class="hstat-label">Active Teams</div></div>
+    <div><div class="hstat-num">4</div><div class="hstat-label">Cities</div></div>
+  </div>
+</section>
+<section class="section">
+  <div class="inner">
+    <p class="section-num">01 — Who we are</p>
+    <h2>A community of<br>builders <em>and competitors.</em></h2>
+    <div class="about-cols">
+      <div class="about-text">
+        <p>Chilli Pepper Robotics is an elite, award-winning VEX organization dedicated to excellence in engineering, innovation, and competitive robotics. We proudly field <strong>five competitive teams</strong> across Canada and the United States.</p>
+        <p>Through a strong emphasis on collaboration, leadership, and real-world STEM application, our program develops skilled, forward-thinking students prepared to excel in competitive robotics — and beyond.</p>
+        <div class="pillars">
+          <div class="pillar"><span class="pillar-icon">◆</span><div><div class="pillar-title">Engineering excellence</div><div class="pillar-desc">Advanced design and strategic problem-solving at every tournament</div></div></div>
+          <div class="pillar"><span class="pillar-icon">◆</span><div><div class="pillar-title">Student-led from day one</div><div class="pillar-desc">Every decision — build, code, strategy — is made by our members</div></div></div>
+          <div class="pillar"><span class="pillar-icon">◆</span><div><div class="pillar-title">Multi-city, multi-school</div><div class="pillar-desc">Students from different schools and backgrounds, competing as one</div></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="stat-block"><div class="sb-num">83</div><div class="sb-label">Combined awards</div></div>
+        <div class="stat-block"><div class="sb-num">5</div><div class="sb-label">Active teams</div></div>
+        <div class="stat-block"><div class="sb-num">4</div><div class="sb-label">Cities across 2 countries</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="inner">
+    <p class="section-num">02 — Our teams</p>
+    <h2>Five teams.<br><em>One organization.</em></h2>
+    <div class="teams-list">
+      <div class="trow">
+        <div><div class="tnum">37X</div><div class="tnick">Xtra Hot Chilli Peppers</div><div class="tloc">Ottawa, ON</div></div>
+        <div class="tdesc">The most decorated team in the organization. Elite autonomous routines and consistently deep championship runs.</div>
+        <div class="tawards"><div class="tawards-num">43</div><div class="tawards-lbl">Awards</div></div>
+      </div>
+      <div class="trow">
+        <div><div class="tnum">3760V</div><div class="tnick">The Unnamed</div><div class="tloc">Tulsa, OK</div></div>
+        <div class="tdesc">Mysterious by name, formidable by performance. One of the most experienced teams in the org.</div>
+        <div class="tawards"><div class="tawards-num">24</div><div class="tawards-lbl">Awards</div></div>
+      </div>
+      <div class="trow">
+        <div><div class="tnum">61568A</div><div class="tnick">Genesis</div><div class="tloc">Cary, NC</div></div>
+        <div class="tdesc">A rising force built on precision engineering and smart strategy.</div>
+        <div class="tawards"><div class="tawards-num">8</div><div class="tawards-lbl">Awards</div></div>
+      </div>
+      <div class="trow">
+        <div><div class="tnum">37S</div><div class="tnick">Supa Hot Chilli Peppers</div><div class="tloc">Ottawa, ON</div></div>
+        <div class="tdesc">High-energy drivers with fast build cycles and sharp alliance coordination.</div>
+        <div class="tawards"><div class="tawards-num">4</div><div class="tawards-lbl">Awards</div></div>
+      </div>
+      <div class="trow">
+        <div><div class="tnum">2020Z</div><div class="tnick">Double Take</div><div class="tloc">Markham, ON</div></div>
+        <div class="tdesc">Creative engineering solutions that make opponents and judges look twice.</div>
+        <div class="tawards"><div class="tawards-num">4</div><div class="tawards-lbl">Awards</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="inner">
+    <p class="section-num">03 — Where we are</p>
+    <h2>Four cities.<br><em>Two countries.</em></h2>
+    <div class="locs-grid">
+      <div class="lcell"><div class="lcell-flag">🇨🇦</div><div class="lcell-city">Ottawa</div><div class="lcell-region">Ontario, Canada</div></div>
+      <div class="lcell"><div class="lcell-flag">🇨🇦</div><div class="lcell-city">Markham</div><div class="lcell-region">Ontario, Canada</div></div>
+      <div class="lcell"><div class="lcell-flag">🇺🇸</div><div class="lcell-city">Cary</div><div class="lcell-region">North Carolina, USA</div></div>
+      <div class="lcell"><div class="lcell-flag">🇺🇸</div><div class="lcell-city">Tulsa</div><div class="lcell-region">Oklahoma, USA</div></div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="flogo"><span>🌶</span> Chilli Pepper Robotics · VEX V5 Organization</div>
+  <div class="flinks">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="teams.html">Teams</a>
+    <a href="results.html">Results</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <p class="fcopy">© 2025 Chilli Pepper Robotics · Ottawa & Markham, ON · Cary, NC · Tulsa, OK</p>
+</footer>
+</body>
+</html>
